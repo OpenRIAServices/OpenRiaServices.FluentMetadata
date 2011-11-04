@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>FluentMetadata</id>
+    <version>0.1.$WCREV$.0</version>
+    <authors>Nikhil Kothari, Merijn de Jonge</authors>
+    <licenseUrl>http://riaservicescontrib.codeplex.com/license</licenseUrl>
+    <projectUrl>http://riaservicescontrib.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>A fluent API for defining metadata for WCF RIA services entities.</description>
+    <tags>RIAServices .Net</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.ServiceModel.DomainServices.Server"/>
+    </frameworkAssemblies>
+  </metadata>
+</package>
