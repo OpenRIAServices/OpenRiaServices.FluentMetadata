@@ -2,6 +2,7 @@
 //
 
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace System.Web.DomainServices.FluentMetadata
@@ -77,6 +78,13 @@ namespace System.Web.DomainServices.FluentMetadata
             }
             return null;
         }
+        internal List<string> Members
+        {
+            get
+            {
+                return _memberMetadata.Keys.ToList();
+            }
+        }
 
         internal List<Attribute> ModelMetadata
         {
@@ -85,11 +93,25 @@ namespace System.Web.DomainServices.FluentMetadata
                 return _modelMetadata;
             }
         }
+        /// <summary>
+        /// Copies the member metadata and model metadata of the provided source MetadataClass to this instance.
+        /// </summary>
+        /// <param name="source"></param>
+        internal void Merge(MetadataClass source)
+        {
+            foreach(var member in source.Members)
+            {
+                foreach(var attr in source.GetMemberMetadata(member))
+                {
+                    this.AddMetadata(member, attr);
+                }
+            }
+            this.ModelMetadata.AddRange(source.ModelMetadata);
+        }
     }
 
     public abstract class MetadataClass<TModel> : MetadataClass where TModel : class
     {
-
         protected MetadataClass()
             : base(typeof(TModel), null)
         {

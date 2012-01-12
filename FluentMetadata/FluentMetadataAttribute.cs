@@ -3,7 +3,6 @@
 
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.ServiceModel.DomainServices.Server;
 
 namespace System.Web.DomainServices.FluentMetadata
@@ -43,25 +42,50 @@ namespace System.Web.DomainServices.FluentMetadata
             {
                 this.metaDataConfiguration = metaDataConfiguration;
                 metaDataConfiguration.OnTypeCreation(container);
+                container.ResolveInheritedMetadata();
             }
             public override ICustomTypeDescriptor GetTypeDescriptor(Type type, ICustomTypeDescriptor parent)
             {
                 ICustomTypeDescriptor baseDescriptor = base.GetTypeDescriptor(type, parent);
-                MetadataClass metadata = this.container.SingleOrDefault(x => x.ModelType == type);
+                var metadata =  GetMetadataClassForType(type);
                 if(metadata != null)
                 {
-                    return new AssociatedMetadataClassTypeDescriptor(type, metadata, baseDescriptor);
+                    return new AssociatedMetadataClassTypeDescriptor(metadata, baseDescriptor);
                 }
                 return baseDescriptor;
+            }
+            /// <summary>
+            /// Finds the MetadataClass for the provided type. That is, either the metadata class defining T, or else the metadata class
+            /// of the closest base class of type.
+            /// </summary>
+            /// <param name="type"></param>
+            /// <returns></returns>
+            private MetadataClass GetMetadataClassForType(Type type)
+            {
+                MetadataClass result = null;
+                foreach(var metadataClass in container)
+                {
+                    if(type.Equals(metadataClass.ModelType))
+                    {
+                        return metadataClass;
+                    }
+                    if(type.IsSubclassOf(metadataClass.ModelType))
+                    {
+                        if(result == null || metadataClass.ModelType.IsSubclassOf(result.ModelType))
+                        {
+                            result = metadataClass;
+                        }
+                    }
+                }
+                return result;
             }
         }
 
         private sealed class AssociatedMetadataClassTypeDescriptor : CustomTypeDescriptor
         {
-
             private MetadataClass _metadata;
 
-            public AssociatedMetadataClassTypeDescriptor(Type objectType, MetadataClass metadata, ICustomTypeDescriptor parentDescriptor)
+            public AssociatedMetadataClassTypeDescriptor(MetadataClass metadata, ICustomTypeDescriptor parentDescriptor)
                 : base(parentDescriptor)
             {
                 _metadata = metadata;
@@ -83,7 +107,6 @@ namespace System.Web.DomainServices.FluentMetadata
             public override PropertyDescriptorCollection GetProperties()
             {
                 PropertyDescriptorCollection propDescs = base.GetProperties();
-
                 if(_metadata.HasModelMemberMetadata)
                 {
                     List<PropertyDescriptor> newPropDescs = new List<PropertyDescriptor>(propDescs.Count);
