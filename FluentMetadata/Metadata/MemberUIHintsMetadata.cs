@@ -52,6 +52,15 @@ namespace System.Web.DomainServices.FluentMetadata
             return this;
         }
         /// <summary>
+        /// indicates that the UI should be generated automatically in order to display filtering for this field.
+        /// </summary>
+        /// <returns></returns>
+        public MemberUIHintsMetadata<TModel> AutoGenerateFilter()
+        {
+            GetDisplayAttribute().AutoGenerateFilter = true;
+            return this;
+        } 
+        /// <summary>
         /// Indicates that no UI should be generated to display this field.
         /// </summary>
         /// <returns></returns>
@@ -80,5 +89,55 @@ namespace System.Web.DomainServices.FluentMetadata
             GetDisplayAttribute().Name = label;
             return this;
         }
+        /// <summary>
+        /// Provide a name that is used to group fields in the UI.
+        /// </summary>
+        /// <param name="groupName"></param>
+        /// <returns></returns>
+        public MemberUIHintsMetadata<TModel> GroupName(string groupName)
+        {
+            GetDisplayAttribute().GroupName = groupName;
+            return this;
+        }
+        /// <summary>
+        /// Sets the order weight of the column.
+        /// </summary>
+        /// <param name="order"></param>
+        /// <returns></returns>
+        public MemberUIHintsMetadata<TModel> Order(int order)
+        {
+            GetDisplayAttribute().Order = order;
+            return this;
+        }
+        /// <summary>
+        ///  Specifies the watermark for prompts in the UI.
+        /// </summary>
+        /// <param name="prompt"></param>
+        /// <returns></returns>
+        public MemberUIHintsMetadata<TModel>Prompt(string prompt)
+        {
+            GetDisplayAttribute().Prompt = prompt;
+            return this;
+        } 
+        /// <summary>
+        /// Provide the resourceType to display in the UI.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public MemberUIHintsMetadata<TModel> ResourceType(Type type)
+        {
+            GetDisplayAttribute().ResourceType = type;
+            return this;
+        }
+        /// <summary>
+        /// Specifies the name that is used for the grid column label.
+        /// </summary>
+        /// <param name="shortName"></param>
+        /// <returns></returns>
+        public MemberUIHintsMetadata<TModel> ShortName(string shortName)
+        {
+            GetDisplayAttribute().ShortName = shortName;
+            return this;
+        } 
     }
 }
