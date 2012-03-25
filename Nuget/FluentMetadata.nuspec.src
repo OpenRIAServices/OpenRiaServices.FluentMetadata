@@ -5,7 +5,7 @@
     <version>0.1.$WCREV$.0</version>
     <authors>Nikhil Kothari, Merijn de Jonge</authors>
     <licenseUrl>http://riaservicescontrib.codeplex.com/license</licenseUrl>
-    <projectUrl>http://riaservicescontrib.codeplex.com/</projectUrl>
+    <projectUrl>http://riaservicescontrib.codeplex.com/wikipage?title=FluentMetadata%20for%20WCF%20RIA%20Services</projectUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>A fluent API for defining metadata for WCF RIA services entities.</description>
     <tags>RIAServices .Net</tags>
