@@ -30,22 +30,18 @@
         public void Add<T>(MetadataClass<T> metadataClass)
             where T : class
         {
-            if(Fetch<T>() != null)
-            {
-                throw new Exception("a metadata class already exists for entity type " + typeof(T).Name);
-            }
-            metaData.Add(metadataClass);
+            Entity<T>().Merge(metadataClass);
         }
 
         public MetadataClass<T> Entity<T>() where T : class
         {
-            MetadataClass existing = Fetch<T>();
-            if(existing == null)
+            MetadataClass metadataClass = Fetch<T>();
+            if(metadataClass == null)
             {
-                existing = new AnonymousMetadataClass<T> { Container = this };
-                metaData.Add(existing);
+                metadataClass = new AnonymousMetadataClass<T> { Container = this };
+                metaData.Add(metadataClass);
             }
-            return existing as MetadataClass<T>;
+            return metadataClass as MetadataClass<T>;
         }
 
         public ICustomTypeDescriptor GetTypeDescriptor(Type type)
