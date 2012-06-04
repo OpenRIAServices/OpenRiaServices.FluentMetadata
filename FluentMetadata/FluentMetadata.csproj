@@ -41,22 +41,23 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel.DomainServices.Server, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FluentMetadataAttribute.cs" />
+    <Compile Include="DomainServiceDescriptionProvider\FluentTypeDescriptionProvider.cs" />
+    <Compile Include="DomainServiceDescriptionProvider\FluentTypeDescriptor.cs" />
+    <Compile Include="DomainServiceDescriptionProvider\FluentMetadataAttribute.cs" />
+    <Compile Include="DomainServiceDescriptionProvider\WrappedPropertyDescriptor.cs" />
+    <Compile Include="FluentConfiguration\MemberProjectionCollectionMetadata.cs" />
     <Compile Include="IFluentMetadataConfiguration.cs" />
-    <Compile Include="MetadataContainer.cs" />
-    <Compile Include="Metadata\FluentMetadataExtensions.cs" />
-    <Compile Include="Metadata\MemberProjectionMetadata.cs" />
-    <Compile Include="Metadata\MemberUIHintsMetadata.cs" />
-    <Compile Include="Metadata\MemberValidationMetadata.cs" />
+    <Compile Include="Metadata\AnonymousMetadataClass.cs" />
+    <Compile Include="Metadata\MetadataContainer.cs" />
+    <Compile Include="FluentConfiguration\AssociationMetadata.cs" />
+    <Compile Include="FluentConfiguration\FluentConfigurationExpressions.cs" />
+    <Compile Include="FluentConfiguration\MemberProjectionMetadata.cs" />
+    <Compile Include="FluentConfiguration\MemberUIHintsMetadata.cs" />
+    <Compile Include="FluentConfiguration\MemberValidationMetadata.cs" />
     <Compile Include="Metadata\MetadataClass.cs" />
-    <Compile Include="Metadata\ValidationMetadata.cs" />
+    <Compile Include="FluentConfiguration\ValidationMetadata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

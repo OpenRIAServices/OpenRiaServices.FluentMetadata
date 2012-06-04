@@ -10,49 +10,49 @@ namespace System.Web.DomainServices.FluentMetadata
 
     public abstract class MetadataClass
     {
-        private readonly List<Attribute> _modelMetadata;
+        public MetadataContainer Container { get; internal set; }
+
+
+        private readonly List<Attribute> _entityMetadata;
         private readonly Dictionary<string, List<Attribute>> _memberMetadata;
-
-        internal MetadataClass(Type modelType, Type resourceType)
+       
+        internal MetadataClass(Type entityType)
         {
-            this.ModelType = modelType;
-            this.ResourceType = resourceType;
+            EntityType = entityType;
 
-            _modelMetadata = new List<Attribute>();
+            _entityMetadata = new List<Attribute>();
             _memberMetadata = new Dictionary<string, List<Attribute>>();
         }
 
-        internal Type ModelType { get; private set; }
+        internal Type EntityType { get; private set; }
 
-        internal bool HasModelMemberMetadata
+        internal bool HasEntityMemberMetadata
         {
             get
             {
-                return _memberMetadata.Count != 0;
+                return _memberMetadata.Any();
             }
         }
 
-        internal bool HasModelMetadata
+        internal bool HasEntityMetadata
         {
             get
             {
-                return _modelMetadata.Count != 0;
+                return _entityMetadata.Any();
             }
         }
 
-        internal Type ResourceType { get; private set; }
-
-        protected internal void AddMetadata(Attribute attribute)
+        public void AddMetadata(Attribute attribute)
         {
             if(attribute == null)
             {
                 throw new ArgumentNullException("attribute");
             }
 
-            _modelMetadata.Add(attribute);
+            _entityMetadata.Add(attribute);
         }
 
-        internal void AddMetadata(string memberName, Attribute attribute)
+        public void AddMetadata(string memberName, Attribute attribute)
         {
             if(attribute == null)
             {
@@ -69,7 +69,7 @@ namespace System.Web.DomainServices.FluentMetadata
             attributes.Add(attribute);
         }
 
-        internal List<Attribute> GetMemberMetadata(string memberName)
+        public List<Attribute> GetMemberMetadata(string memberName)
         {
             List<Attribute> attributes;
             if(_memberMetadata.TryGetValue(memberName, out attributes))
@@ -78,59 +78,36 @@ namespace System.Web.DomainServices.FluentMetadata
             }
             return null;
         }
-        internal List<string> Members
-        {
-            get
-            {
-                return _memberMetadata.Keys.ToList();
-            }
-        }
 
-        internal List<Attribute> ModelMetadata
+        public List<Attribute> EntityMetadata
         {
             get
             {
-                return _modelMetadata;
+                return _entityMetadata;
             }
         }
         /// <summary>
-        /// Copies the member metadata and model metadata of the provided source MetadataClass to this instance.
+        /// Copies the member metadata and entity metadata of the provided source MetadataClass to this instance.
         /// </summary>
         /// <param name="source"></param>
         internal void Merge(MetadataClass source)
         {
-            foreach(var member in source.Members)
+            foreach(var member in source._memberMetadata.Keys)
             {
-                foreach(var attr in source.GetMemberMetadata(member))
+                foreach(var attr in source._memberMetadata[member].ToList())
                 {
-                    this.AddMetadata(member, attr);
+                    AddMetadata(member, attr);
                 }
             }
-            this.ModelMetadata.AddRange(source.ModelMetadata);
+            EntityMetadata.AddRange(source.EntityMetadata);
         }
     }
 
-    public abstract class MetadataClass<TModel> : MetadataClass where TModel : class
+    public abstract class MetadataClass<TEntity> : MetadataClass where TEntity : class
     {
         protected MetadataClass()
-            : base(typeof(TModel), null)
+            : base(typeof(TEntity))
         {
-        }
-
-        protected MetadataClass(Type resourceType)
-            : base(typeof(TModel), resourceType)
-        {
-        }
-
-        protected void AddMemberMetadata<TMember>(Expression<Func<TModel, TMember>> memberReference, Attribute attribute)
-        {
-            MemberExpression expression = memberReference.Body as MemberExpression;
-            if(expression == null)
-            {
-                throw new ArgumentNullException("memberReference");
-            }
-
-            AddMetadata(expression.Member.Name, attribute);
         }
     }
 }

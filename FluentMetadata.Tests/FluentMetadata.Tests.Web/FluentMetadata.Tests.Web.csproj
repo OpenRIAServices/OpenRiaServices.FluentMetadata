@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="FluentMetadataConfiguration.cs" />
     <Compile Include="FluentMetadataTestDomainService.cs" />
+    <Compile Include="Model\Bar.cs" />
     <Compile Include="Model\Foo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

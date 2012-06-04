@@ -13,6 +13,8 @@ namespace FluentMetadata.Tests.Web.Model
         [Key]
         public int Id { get; set; }
         [DataMember]
+        public int Id2 { get; set; }
+        [DataMember]
         public string ExcludedString { get; set; }
         [DataMember]
         public string RequiredString { get; set; }

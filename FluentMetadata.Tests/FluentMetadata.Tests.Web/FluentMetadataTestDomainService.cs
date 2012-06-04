@@ -14,7 +14,11 @@ namespace FluentMetadata.Tests.Web
     {
         public List<Foo> GetFoo()
         {
-            return null;
+            return new List<Foo>();
+        }
+        public List<Bar> GetBar()
+        {
+            return new List<Bar>();
         }
     }
 }
