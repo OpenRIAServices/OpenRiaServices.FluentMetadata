@@ -2,6 +2,7 @@
 //
 
 using System.Collections.Generic;
+using System.Reflection;
 using System.ServiceModel.DomainServices.Server;
 using System.Linq;
 
@@ -36,22 +37,32 @@ namespace System.Web.DomainServices.FluentMetadata
             var chainedProvider = CreateProviderChain(domainServiceType);
             return new FluentTypeDescriptionProvider(domainServiceType, parent, metaDataConfiguration, chainedProvider ?? parent);
         }
-
+        /// <summary>
+        /// Collect all non-fluent metadata description providers by visiting the type hierarchy of the domain service.
+        /// </summary>
+        /// <param name="domainServiceType"></param>
+        /// <returns></returns>
+        private IEnumerable<DomainServiceDescriptionProviderAttribute> GetNonFluentDescriptionProviders(Type domainServiceType)
+        {
+            var thisType = this.GetType();
+            var type = domainServiceType;
+            var allProviders = new List<DomainServiceDescriptionProviderAttribute>();
+            while(type != null)
+            {
+               var providers= type.GetCustomAttributes(false).OfType<DomainServiceDescriptionProviderAttribute>().Where(
+                    x => x.GetType() != thisType);
+                allProviders.AddRange(providers);
+                type = type.BaseType;
+            }
+            return allProviders;
+        }
         private DomainServiceDescriptionProvider CreateProviderChain(Type domainServiceType)
         {
             var providers = new List<DomainServiceDescriptionProviderAttribute>();
 
-            // Get DomainServiceDescriptionProviderAttribute attributes for this domain service type
-            var thisProviders =
-                domainServiceType.GetCustomAttributes(true).OfType<DomainServiceDescriptionProviderAttribute>().Where(
-                    x => x.GetType() != this.GetType());
-            // Get DomainServiceDescriptionProviderAttribute attributes for base domain service type
-            var baseProviders =
-                domainServiceType.BaseType.GetCustomAttributes(true).OfType<DomainServiceDescriptionProviderAttribute>()
-                    .Where(x => x.GetType() != this.GetType());
-
-            providers.AddRange(baseProviders);
-            providers.AddRange(thisProviders);
+            // Get all domain service description providers for the domain services, other than the fluent metadata description provider
+            var nonFLuentProviders = GetNonFluentDescriptionProviders(domainServiceType);
+            providers.AddRange(nonFLuentProviders);
             if(providers.Any() == false)
             {
                 return null;
