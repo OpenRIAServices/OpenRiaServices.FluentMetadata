@@ -154,7 +154,6 @@ namespace System.Web.DomainServices.FluentMetadata
             if(displayAttribute == null)
             {
                 displayAttribute = new DisplayAttribute();
-                displayAttribute.ResourceType = GetDisplayAttribute().ResourceType;
                 _metadata.AddMetadata(_memberName, displayAttribute);
             }
 

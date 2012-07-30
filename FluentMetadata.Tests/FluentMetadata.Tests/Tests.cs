@@ -64,5 +64,18 @@ namespace FluentMetadata.Tests
             Assert.IsTrue(association.OtherKeyMembers.ToArray()[0] == "Id2");
             Assert.IsTrue(association.OtherKeyMembers.ToArray()[1] == "Id");
         }
+        [TestMethod]
+        [Description("Tests functioning of the .UIHints() fluent metadata expression")]
+        public void TestUIHintsFluentMetadataExpression()
+        {
+            var typeOfFoo = typeof(Foo);
+            var propInfo = typeOfFoo.GetProperty("UIHintsString");
+            Assert.IsFalse(propInfo == null, "propInfo should not be null");
+
+            Assert.IsTrue(propInfo.IsDefined(typeof(DisplayAttribute), false), "property should have defined the DisplayAttribute");
+            var attr = propInfo.GetCustomAttributes(typeof(DisplayAttribute), false).OfType<DisplayAttribute>().SingleOrDefault();
+            Assert.IsNotNull(attr, "Missing DisplayAttribute");
+            Assert.IsTrue(attr.ShortName == "ShortName");
+        }
     }
 }

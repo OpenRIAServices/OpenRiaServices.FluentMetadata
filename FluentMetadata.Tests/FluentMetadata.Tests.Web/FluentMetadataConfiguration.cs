@@ -19,6 +19,7 @@ namespace FluentMetadata.Tests.Web
                 this.Projection(x => x.ExcludedString).Exclude();
                 this.Validation(x => x.RequiredString).Required();
                 this.Validation(x => x.RegularExpressionString).RegularExpression("[a-z]");
+                this.UIHints(x => x.UIHintsString).ShortName("ShortName");
             }
         }
     }
