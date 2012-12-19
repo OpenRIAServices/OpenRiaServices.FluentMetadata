@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ServiceModel.DomainServices;
 using System.ServiceModel.DomainServices.Server;
 
 namespace System.Web.DomainServices.FluentMetadata
@@ -34,6 +35,13 @@ namespace System.Web.DomainServices.FluentMetadata
         #endregion
 
         #region Public Methods and Operators
+        /// <summary>
+        /// Indicates that an association references entities belonging to an external DomainContext.
+        /// </summary>
+        public void ExternalReference()
+        {
+            _metadata.AddMetadata(MemberName, new ExternalReferenceAttribute());
+        }
 
         /// <summary>
         ///   Indicates that an entity member should not exist in the code generated client
