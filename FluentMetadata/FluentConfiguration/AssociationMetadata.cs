@@ -1,3 +1,5 @@
+using System.ServiceModel.DomainServices;
+
 namespace System.Web.DomainServices.FluentMetadata
 {
     using System.Collections.Generic;
@@ -79,6 +81,14 @@ namespace System.Web.DomainServices.FluentMetadata
                 }
             }
             ResetAttribute();
+            return this;
+        }
+        /// <summary>
+        /// Indicates that an association references entities belonging to an external DomainContext.
+        /// </summary>
+        public AssociationMetadata<TEntity, TMember> IsExternalReference()
+        {
+            metadata.AddMetadata(member, new ExternalReferenceAttribute());
             return this;
         }
 
