@@ -120,7 +120,7 @@ namespace System.Web.DomainServices.FluentMetadata
             {
                 if(errorMessage.StartsWith("res:"))
                 {
-                    attribute.ErrorMessage = errorMessage.Substring(4);
+                    attribute.ErrorMessageResourceName = errorMessage.Substring(4);
                     attribute.ErrorMessageResourceType = _resourceType;
                 }
                 else
