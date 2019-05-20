@@ -13,7 +13,8 @@
     <SonarQubeTestProject Condition="'$(IsTestProject)' == 'true'">True</SonarQubeTestProject>
     <IsPackable Condition="'$(IsTestProject)' == 'true'">false</IsPackable>
     
-    <GenerateDocumentationFile  Condition="'$(IsFrameworkProject)' == 'true' and '$(Configuration)' != 'Debug'">true</GenerateDocumentationFile>
+    <!-- Project is missing documentation so not enabled -->
+    <!--<GenerateDocumentationFile  Condition="'$(IsFrameworkProject)' == 'true' and '$(Configuration)' != 'Debug'">true</GenerateDocumentationFile>-->
     <CopyLocalLockFileAssemblies Condition="'$(IsFrameworkProject)' == 'true'">false</CopyLocalLockFileAssemblies>
 
     <!-- Setup signing-->
