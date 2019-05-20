@@ -12,7 +12,7 @@
    
     <SonarQubeTestProject Condition="'$(IsTestProject)' == 'true'">True</SonarQubeTestProject>
 
-    <GenerateDocumentationFile  Condition="'$(IsFrameworkProject)' == 'true'">true</GenerateDocumentationFile>
+    <GenerateDocumentationFile  Condition="'$(IsFrameworkProject)' == 'true' and '$(Configuration)' != 'Debug'">true</GenerateDocumentationFile>
     <CopyLocalLockFileAssemblies Condition="'$(IsFrameworkProject)' == 'true'">false</CopyLocalLockFileAssemblies>
 
     <!-- Setup signing-->
