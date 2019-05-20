@@ -1,4 +1,4 @@
-﻿using OpenRiaServices.DomainServices.Server.FluentMetadata;
+﻿using OpenRiaServices.FluentMetadata;
 using FluentMetadata.Tests.Web.Model;
 
 namespace FluentMetadata.Tests.Web

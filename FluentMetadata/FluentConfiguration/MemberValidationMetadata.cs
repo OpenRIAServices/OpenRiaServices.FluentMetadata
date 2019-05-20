@@ -1,7 +1,7 @@
 ﻿// MemberValidationMetadata.cs
 //
 
-namespace OpenRiaServices.DomainServices.Server.FluentMetadata
+namespace OpenRiaServices.FluentMetadata
 {
     using System;
     using System.ComponentModel.DataAnnotations;

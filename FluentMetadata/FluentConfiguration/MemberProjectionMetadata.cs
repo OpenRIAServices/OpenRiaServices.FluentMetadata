@@ -2,7 +2,7 @@
 using OpenRiaServices.DomainServices;
 using OpenRiaServices.DomainServices.Server;
 
-namespace OpenRiaServices.DomainServices.Server.FluentMetadata
+namespace OpenRiaServices.FluentMetadata
 {
     public class MemberProjectionMetadata<TEntity, TMember>
         where TEntity : class

@@ -7,7 +7,7 @@ using OpenRiaServices.DomainServices.Server;
 using System.Linq;
 using System;
 
-namespace OpenRiaServices.DomainServices.Server.FluentMetadata
+namespace OpenRiaServices.FluentMetadata
 {
     /// <summary>
     /// Attribute applied to a OpenRiaServices.DomainServices.Server.DomainService

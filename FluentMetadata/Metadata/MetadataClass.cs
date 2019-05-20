@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace OpenRiaServices.DomainServices.Server.FluentMetadata
+namespace OpenRiaServices.FluentMetadata
 {
 
     public abstract class MetadataClass
