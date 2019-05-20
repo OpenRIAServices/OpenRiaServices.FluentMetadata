@@ -1,5 +1,5 @@
 ﻿
-namespace System.Web.DomainServices.FluentMetadata
+namespace OpenRiaServices.DomainServices.Server.FluentMetadata
 {
     public interface IFluentMetadataConfiguration
     {

@@ -1,8 +1,9 @@
 ﻿// MemberValidationMetadata.cs
 //
 
-namespace System.Web.DomainServices.FluentMetadata
+namespace OpenRiaServices.DomainServices.Server.FluentMetadata
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
 
     public sealed class MemberValidationMetadata<TEntity>

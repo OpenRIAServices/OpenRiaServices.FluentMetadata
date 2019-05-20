@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ServiceModel.DomainServices;
-using System.ServiceModel.DomainServices.Server;
+using OpenRiaServices.DomainServices;
+using OpenRiaServices.DomainServices.Server;
 
-namespace System.Web.DomainServices.FluentMetadata
+namespace OpenRiaServices.DomainServices.Server.FluentMetadata
 {
     public class MemberProjectionMetadata<TEntity, TMember>
         where TEntity : class

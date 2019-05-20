@@ -1,11 +1,12 @@
 ﻿// MetadataClass.cs
 //
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace System.Web.DomainServices.FluentMetadata
+namespace OpenRiaServices.DomainServices.Server.FluentMetadata
 {
 
     public abstract class MetadataClass

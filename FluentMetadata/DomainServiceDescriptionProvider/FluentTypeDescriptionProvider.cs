@@ -1,7 +1,8 @@
-namespace System.Web.DomainServices.FluentMetadata
+namespace OpenRiaServices.DomainServices.Server.FluentMetadata
 {
+    using System;
     using System.ComponentModel;
-    using System.ServiceModel.DomainServices.Server;
+    using OpenRiaServices.DomainServices.Server;
 
     internal sealed class FluentTypeDescriptionProvider : DomainServiceDescriptionProvider
     {
