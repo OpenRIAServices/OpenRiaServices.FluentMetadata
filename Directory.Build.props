@@ -2,8 +2,8 @@
 
   <!-- This PropertyGroup defines the location and version of Silverlight and SDK for .Net projects (Metadata projects) -->
   <PropertyGroup>
-    <IsTestProject Condition="'$(IsTestProject)' == '' And ($(MSBuildProjectFile.Contains('.Test.')) Or $(MSBuildProjectDirectory.Contains('\Test\')))">true</IsTestProject>
-    <IsFrameworkProject Condition="'$(IsTestProject)' != 'true'  and !$(MSBuildProjectFile.Contains('.Test.')) ">true</IsFrameworkProject>
+    <IsTestProject Condition="'$(IsTestProject)' == '' And ($(MSBuildProjectFile.Contains('.Test')) Or $(MSBuildProjectDirectory.Contains('Tests\')))">true</IsTestProject>
+    <IsFrameworkProject Condition="'$(IsTestProject)' != 'true'  and !$(MSBuildProjectFile.Contains('.Test')) ">true</IsFrameworkProject>
 
     <DeterministicSourcePaths Condition="'$(BUILD_BUILDID)' != '' and '$(IsFrameworkProject)' == 'true'">true</DeterministicSourcePaths>
     
