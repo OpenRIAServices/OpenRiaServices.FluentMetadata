@@ -5,8 +5,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Generated_Code\**" />
-
-    <Compile Include="Generated_Code\**" />
+    <None Include="Generated_Code\**" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.1.0" />
