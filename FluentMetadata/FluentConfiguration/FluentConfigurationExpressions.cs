@@ -1,8 +1,9 @@
 ﻿// FluentConfigurationExpressions.cs
 //
 
-namespace System.Web.DomainServices.FluentMetadata
+namespace OpenRiaServices.FluentMetadata
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq.Expressions;
 

@@ -1,4 +1,4 @@
-namespace System.Web.DomainServices.FluentMetadata
+namespace OpenRiaServices.FluentMetadata
 {
     internal class AnonymousMetadataClass<T> : MetadataClass<T>
         where T : class

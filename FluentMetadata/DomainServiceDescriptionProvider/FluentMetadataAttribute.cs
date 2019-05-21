@@ -3,13 +3,14 @@
 
 using System.Collections.Generic;
 using System.Reflection;
-using System.ServiceModel.DomainServices.Server;
+using OpenRiaServices.DomainServices.Server;
 using System.Linq;
+using System;
 
-namespace System.Web.DomainServices.FluentMetadata
+namespace OpenRiaServices.FluentMetadata
 {
     /// <summary>
-    /// Attribute applied to a System.ServiceModel.DomainServices.Server.DomainService
+    /// Attribute applied to a OpenRiaServices.DomainServices.Server.DomainService
     /// type to specify that Metadata for entities is specified using the FluentMetadata interface.
     /// </summary>
     public sealed class FluentMetadataAttribute : DomainServiceDescriptionProviderAttribute

@@ -1,4 +1,4 @@
-namespace System.Web.DomainServices.FluentMetadata
+namespace OpenRiaServices.FluentMetadata
 {
     using System.Collections.Generic;
     using System.ComponentModel;

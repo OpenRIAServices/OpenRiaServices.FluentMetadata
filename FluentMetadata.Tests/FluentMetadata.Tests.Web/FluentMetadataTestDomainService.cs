@@ -2,9 +2,9 @@
 namespace FluentMetadata.Tests.Web
 {
     using System.Collections.Generic;
-    using System.ServiceModel.DomainServices.Hosting;
-    using System.ServiceModel.DomainServices.Server;
-    using System.Web.DomainServices.FluentMetadata;
+    using OpenRiaServices.DomainServices.Hosting;
+    using OpenRiaServices.DomainServices.Server;
+    using OpenRiaServices.FluentMetadata;
     using FluentMetadata.Tests.Web.Model;
 
 

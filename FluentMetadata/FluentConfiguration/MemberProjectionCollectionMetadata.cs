@@ -1,4 +1,4 @@
-namespace System.Web.DomainServices.FluentMetadata
+namespace OpenRiaServices.FluentMetadata
 {
     public sealed class MemberProjectionCollectionMetadata<TModel, TMember>: MemberProjectionMetadata<TModel, TMember>
         where TModel : class where TMember : class

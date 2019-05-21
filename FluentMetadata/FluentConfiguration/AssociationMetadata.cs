@@ -1,7 +1,8 @@
-using System.ServiceModel.DomainServices;
+using OpenRiaServices.DomainServices;
 
-namespace System.Web.DomainServices.FluentMetadata
+namespace OpenRiaServices.FluentMetadata
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Linq.Expressions;

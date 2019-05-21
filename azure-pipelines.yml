@@ -7,17 +7,17 @@ trigger:
 - master
 
 pool:
-  vmImage: 'vs2015-win2012r2'
+  vmImage: 'windows-2019'
 
 variables:
-  solution: 'FluentMetadata\FluentMetadata.sln'
+  solution: 'FluentMetadata.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
 steps:
 - task: NuGetToolInstaller@0
 
-- task: gittools.gitversion.gitversion-task.GitVersion@4
+- task: GitVersion@4
   displayName: GitVersion
   inputs:
     preferBundledVersion: true
@@ -43,10 +43,10 @@ steps:
 #    msbuildArgs: '/t:Pack /p:PackageVersion=$(Build.BuildNumber)'
 
 - task: VSTest@2
-  enabled: 'false'
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    codeCoverageEnabled: true
 
 - task: SonarSource.sonarcloud.ce096e50-6155-4de8-8800-4221aaeed4a1.SonarCloudAnalyze@1
   displayName: 'Run Code Analysis'

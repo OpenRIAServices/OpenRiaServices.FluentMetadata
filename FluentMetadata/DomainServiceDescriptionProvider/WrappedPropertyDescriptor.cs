@@ -1,5 +1,6 @@
-namespace System.Web.DomainServices.FluentMetadata
+namespace OpenRiaServices.FluentMetadata
 {
+    using System;
     using System.ComponentModel;
 
     /// <summary>
