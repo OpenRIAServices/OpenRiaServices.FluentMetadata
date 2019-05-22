@@ -8,6 +8,9 @@ Sonarcloud status
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=OpenRIAServices_OpenRiaServices.FluentMetadata&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=OpenRIAServices_OpenRiaServices.FluentMetadata)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=OpenRIAServices_OpenRiaServices.FluentMetadata&metric=bugs)](https://sonarcloud.io/dashboard?id=OpenRIAServices_OpenRiaServices.FluentMetadata)
 
+Nuget [![Nuget](https://img.shields.io/nuget/v/OpenRiaServices.FluentMetadata.svg)](https://www.nuget.org/packages/OpenRiaServices.FluentMetadata)
+preview [![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/OpenRiaServices.FluentMetadata.svg)](https://www.nuget.org/packages/OpenRiaServices.FluentMetadata)
+
 # OpenRiaServices.FluentMetadata
 
 FluentMentadata is a Fluent API for defining metadata for Open RIA Services entities
@@ -18,6 +21,12 @@ The main advantage of this package is that it allows you to separate your datamo
 
 ## Download
 The package is available as a [Nuget package](https://www.nuget.org/packages/OpenRiaServices.FluentMetadata).
+
+
+Last nuget release [![Nuget](https://img.shields.io/nuget/v/OpenRiaServices.FluentMetadata.svg)](https://www.nuget.org/packages/OpenRiaServices.FluentMetadata)
+
+Last preview release [![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/OpenRiaServices.FluentMetadata.svg)](https://www.nuget.org/packages/OpenRiaServices.FluentMetadata)
+
 
 ## Using FluentMetadata
 * Install the FluentMetadata Nuget package (or download its source code)
