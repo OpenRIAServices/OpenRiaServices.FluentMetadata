@@ -4,6 +4,7 @@
     <TargetFrameworks>net45</TargetFrameworks>
     <Description>library that provides a fluent configuration interface for configuring domain services.</Description>
     <PackageId>OpenRiaServices.FluentMetadata</PackageId>
+    <GeneratePackageOnBuild  Condition="'$(BUILD_BUILDID)' != ''" >true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
