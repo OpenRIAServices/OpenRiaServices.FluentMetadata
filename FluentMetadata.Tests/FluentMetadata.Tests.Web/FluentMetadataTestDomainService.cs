@@ -2,7 +2,6 @@
 namespace FluentMetadata.Tests.Web
 {
     using System.Collections.Generic;
-    using OpenRiaServices.Hosting;
     using OpenRiaServices.Server;
     using OpenRiaServices.FluentMetadata;
     using FluentMetadata.Tests.Web.Model;
