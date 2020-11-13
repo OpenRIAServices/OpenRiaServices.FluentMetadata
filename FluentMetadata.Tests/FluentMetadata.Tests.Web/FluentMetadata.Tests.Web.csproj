@@ -80,9 +80,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\FluentMetadata\OpenRiaServices.DomainServices.Server.FluentMetadata.csproj">
+    <ProjectReference Include="..\..\FluentMetadata\OpenRiaServices.Server.FluentMetadata.csproj">
       <Project>{085f2a42-8ccc-41b7-bccb-92728e43a352}</Project>
-      <Name>OpenRiaServices.DomainServices.Server.FluentMetadata</Name>
+      <Name>OpenRiaServices.Server.FluentMetadata</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

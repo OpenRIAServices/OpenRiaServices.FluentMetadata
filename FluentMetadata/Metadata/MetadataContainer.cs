@@ -5,7 +5,7 @@
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
-    using OpenRiaServices.DomainServices.Server;
+    using OpenRiaServices.Server;
 
     public class MetadataContainer
     {

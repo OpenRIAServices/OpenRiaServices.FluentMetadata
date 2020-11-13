@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using OpenRiaServices.DomainServices;
-using OpenRiaServices.DomainServices.Server;
+using OpenRiaServices;
+using OpenRiaServices.Server;
 
 namespace OpenRiaServices.FluentMetadata
 {
