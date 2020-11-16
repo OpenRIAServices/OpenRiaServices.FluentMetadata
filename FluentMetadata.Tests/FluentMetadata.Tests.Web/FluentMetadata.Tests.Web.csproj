@@ -75,6 +75,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="OpenRiaServices.Hosting.Wcf">
+      <Version>5.0.0-rc0001</Version>
+    </PackageReference>
     <PackageReference Include="OpenRiaServices.Server">
       <Version>5.0.0-rc0001</Version>
     </PackageReference>
