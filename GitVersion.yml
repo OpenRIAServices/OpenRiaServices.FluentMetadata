@@ -1,8 +1,6 @@
 assembly-versioning-scheme: Major
 mode: ContinuousDeployment
 branches:
-  master:
-    regex: (^main$|^origin\/main$)
-    is-mainline:true
+  master: {}
 ignore:
   sha: []
