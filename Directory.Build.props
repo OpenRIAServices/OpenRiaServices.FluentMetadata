@@ -22,8 +22,9 @@
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)OpenRiaServices.FluentMetadata.snk</AssemblyOriginatorKeyFile>
 
     <!-- Common Assembly and Package Info-->
-    <Version>5.0.0</Version>
-    <Authors>Merijn de Jonge, OpenRiaServices, Nikhil Kothari</Authors>
+    <!-- Include symbol files (*.pdb) in the built .nupkg -->
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <Version>5.0.0</Version>    <Authors>Merijn de Jonge, OpenRiaServices, Nikhil Kothari</Authors>
     <Company>Merijn de Jonge</Company>
     <Product>OpenRiaServices.FluentMetadata</Product>
     <Copyright>Copyright © OpenRiaServices 2019</Copyright>
