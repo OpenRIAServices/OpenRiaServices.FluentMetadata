@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FluentMetadata.Tests.Web</RootNamespace>
     <AssemblyName>FluentMetadata.Tests.Web</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44365</IISExpressSSLPort>
@@ -75,14 +75,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="OpenRiaServices.Hosting.Wcf">
+      <Version>5.0.0-rc0001</Version>
+    </PackageReference>
     <PackageReference Include="OpenRiaServices.Server">
-      <Version>4.6.0</Version>
+      <Version>5.0.0-rc0001</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\FluentMetadata\OpenRiaServices.DomainServices.Server.FluentMetadata.csproj">
+    <ProjectReference Include="..\..\FluentMetadata\OpenRiaServices.Server.FluentMetadata.csproj">
       <Project>{085f2a42-8ccc-41b7-bccb-92728e43a352}</Project>
-      <Name>OpenRiaServices.DomainServices.Server.FluentMetadata</Name>
+      <Name>OpenRiaServices.Server.FluentMetadata</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

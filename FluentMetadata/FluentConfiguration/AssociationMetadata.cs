@@ -1,4 +1,4 @@
-using OpenRiaServices.DomainServices;
+using OpenRiaServices;
 
 namespace OpenRiaServices.FluentMetadata
 {
