@@ -11,8 +11,8 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.1.1" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
     <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
-    <PackageReference Include="OpenRiaServices.Client.Core" Version="5.0.0-rc0001" />
-    <PackageReference Include="OpenRiaServices.Client.CodeGen" Version="5.0.0-rc0001">
+    <PackageReference Include="OpenRiaServices.Client.Core" Version="5.0.0" />
+    <PackageReference Include="OpenRiaServices.Client.CodeGen" Version="5.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
