@@ -11,7 +11,7 @@ trigger:
     include:
     - v*
 pool:
-  vmImage: 'windows-2019'
+  vmImage: 'windows-2022'
 
 variables:
   solution: 'FluentMetadata.sln'
@@ -19,10 +19,6 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-
-- task: NuGetToolInstaller@1
-  inputs:
-    versionSpec: '5.8.0'
 
 - task: gitversion/setup@0
   displayName: Install GitVersion
