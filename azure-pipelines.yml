@@ -28,6 +28,15 @@ steps:
   inputs:
     versionSpec: '5.x'
 
+- task: NuGetToolInstaller@1
+  inputs:
+    checkLatest: true
+
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '6.x'
+    
 - task: gitversion/execute@0
   displayName: Use GitVersion
 
